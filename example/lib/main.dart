@@ -76,16 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(LocaleKeys.title).tr(),
-        //Text(AppLocalizations.of(context).tr('title')),
+        title: Text(LocaleKeys().title).tr(),
         actions: <Widget>[
-          FlatButton(
+          ElevatedButton(
             child: Icon(Icons.language),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (_) => LanguageView(), fullscreenDialog: true),
+                MaterialPageRoute(builder: (_) => LanguageView(), fullscreenDialog: true),
               );
             },
           ),
@@ -98,64 +96,16 @@ class _MyHomePageState extends State<MyHomePage> {
             Spacer(
               flex: 1,
             ),
-            Text(
-                LocaleKeys.supportedLanguage
-                    .tr(args: [LocaleKeys.supportedLocales.length.toString()]),
-                style: TextStyle(
-                    color: Colors.grey.shade600,
-                    fontSize: 19,
-                    fontWeight: FontWeight.bold)),
+            Text(LocaleKeys().supportedLanguage.tr(args: [LocaleKeys.supportedLocales.length.toString()]),
+                style: TextStyle(color: Colors.grey.shade600, fontSize: 19, fontWeight: FontWeight.bold)),
             Spacer(
               flex: 1,
             ),
             Text(
-              LocaleKeys.gender,
-              style: TextStyle(
-                  color: Colors.grey.shade600,
-                  fontSize: 19,
-                  fontWeight: FontWeight.bold),
-            ).tr(args: ['aissat'], gender: _gender ? 'female' : 'male'),
-            Text(
-              tr(LocaleKeys.gender, gender: _gender ? 'female' : 'male'),
-              style: TextStyle(
-                  color: Colors.grey.shade600,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold),
+              LocaleKeys().title,
+              style: TextStyle(color: Colors.grey.shade600, fontSize: 19, fontWeight: FontWeight.bold),
             ),
-            Center(child: Switch(value: _gender, onChanged: switchGender)),
-            Spacer(
-              flex: 1,
-            ),
-            Text(LocaleKeys.msg).tr(args: ['aissat', 'Flutter']),
-            Text(LocaleKeys.msgNamed)
-                .tr(namedArgs: {'lang': 'Dart'}, args: ['Easy localization']),
-            Text(LocaleKeys.clicked).plural(counter),
-            FlatButton(
-              onPressed: () {
-                incrementCounter();
-              },
-              child: Text(LocaleKeys.clickMe).tr(),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-                plural(LocaleKeys.amount, counter,
-                    format: NumberFormat.currency(
-                        locale: Intl.defaultLocale, symbol: '€')),
-                style: TextStyle(
-                    color: Colors.grey.shade900,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold)),
-            SizedBox(
-              height: 20,
-            ),
-            RaisedButton(
-              onPressed: () {
-                context.deleteSaveLocale();
-              },
-              child: Text(LocaleKeys.resetLocale).tr(),
-            ),
+            Text(LocaleKeys().clicked).plural(counter),
             Spacer(
               flex: 1,
             ),

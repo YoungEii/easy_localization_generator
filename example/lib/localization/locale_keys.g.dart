@@ -6,46 +6,46 @@ part of 'locale_keys.dart';
 // LocalizationGenerator
 // **************************************************************************
 
-// Generated at: Thu, 21 Jul 2022 16:04:20 +07:00
+// Generated at: Thu, 03 Nov 2022 17:50:30 +08:00
 class LocaleKeys {
-  static const supportedLocales = const [
-    const Locale('en', 'US'),
-    const Locale('ar', 'DZ'),
-    const Locale('de', 'DE'),
-    const Locale('ru', 'RU'),
-    const Locale('vi', 'VN')
+  static const supportedLocales = [
+    Locale('en', 'US'),
+    Locale('ar', 'DZ'),
+    Locale('de', 'DE'),
+    Locale('ru', 'RU'),
+    Locale('vi', 'VN')
   ];
 
   // amount
-  static const amount = 'amount';
+  final amount = 'amount'.tr();
 
   // clickMe
-  static const clickMe = 'clickMe';
+  final clickMe = 'clickMe'.tr();
 
   // clicked
-  static const clicked = 'clicked';
+  final clicked = 'clicked'.tr();
 
   // gender
-  static const gender = 'gender';
-  static const genderWithArg = 'gender.with_arg';
+  final gender = 'gender'.tr();
+  final genderWithArg = 'gender.with_arg'.tr();
 
   // msg
-  static const msg = 'msg';
-  static const msgNamed = 'msg_named';
+  final msg = 'msg'.tr();
+  final msgNamed = 'msg_named'.tr();
 
   // profile
-  static const profile = 'profile';
-  static const profileResetPassword = 'profile.reset_password';
-  static const profileResetPasswordLabel = 'profile.reset_password.label';
-  static const profileResetPasswordPassword = 'profile.reset_password.password';
-  static const profileResetPasswordUsername = 'profile.reset_password.username';
+  final profile = 'profile'.tr();
+  final profileResetPassword = 'profile.reset_password'.tr();
+  final profileResetPasswordLabel = 'profile.reset_password.label'.tr();
+  final profileResetPasswordPassword = 'profile.reset_password.password'.tr();
+  final profileResetPasswordUsername = 'profile.reset_password.username'.tr();
 
   // reset
-  static const resetLocale = 'reset_locale';
+  final resetLocale = 'reset_locale'.tr();
 
   // supported
-  static const supportedLanguage = 'supported_language';
+  final supportedLanguage = 'supported_language'.tr();
 
   // title
-  static const title = 'title';
+  final title = 'title'.tr();
 }
