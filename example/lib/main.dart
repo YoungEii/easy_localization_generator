@@ -3,7 +3,7 @@ import 'package:easy_localization_loader/easy_localization_loader.dart';
 import 'package:flutter/material.dart';
 
 import 'lang_view.dart';
-import 'localization/locale_keys.dart';
+import 'localization/strings.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,8 +11,8 @@ void main() async {
 
   runApp(EasyLocalization(
       child: MyApp(),
-      supportedLocales: LocaleKeys.supportedLocales,
-      path: 'resources/langs/langs.csv',
+      supportedLocales: Strings.supportedLocales,
+      path: 'assets/langs/langs.csv',
       // fallbackLocale: Locale('en', 'US'),
       // startLocale: Locale('de', 'DE'),
       // saveLocale: false,
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(LocaleKeys().title).tr(),
+        title: Text(Strings.title),
         actions: <Widget>[
           ElevatedButton(
             child: Icon(Icons.language),
@@ -96,16 +96,47 @@ class _MyHomePageState extends State<MyHomePage> {
             Spacer(
               flex: 1,
             ),
-            Text(LocaleKeys().supportedLanguage.tr(args: [LocaleKeys.supportedLocales.length.toString()]),
+            Text(Strings.supportedLanguage.tr(args: [Strings.supportedLocales.length.toString()]),
                 style: TextStyle(color: Colors.grey.shade600, fontSize: 19, fontWeight: FontWeight.bold)),
             Spacer(
               flex: 1,
             ),
             Text(
-              LocaleKeys().title,
+              Strings.gender,
               style: TextStyle(color: Colors.grey.shade600, fontSize: 19, fontWeight: FontWeight.bold),
+            ).tr(args: ['aissat'], gender: _gender ? 'female' : 'male'),
+            Text(
+              tr(Strings.gender, gender: _gender ? 'female' : 'male'),
+              style: TextStyle(color: Colors.grey.shade600, fontSize: 15, fontWeight: FontWeight.bold),
             ),
-            Text(LocaleKeys().clicked).plural(counter),
+            Center(child: Switch(value: _gender, onChanged: switchGender)),
+            Spacer(
+              flex: 1,
+            ),
+            Text(Strings.msg).tr(args: ['aissat', 'Flutter']),
+            Text(Strings.msgNamed).tr(namedArgs: {'lang': 'Dart'}, args: ['Easy localization']),
+            Text(Strings.clicked).plural(counter),
+            ElevatedButton(
+              onPressed: () {
+                incrementCounter();
+              },
+              child: Text(Strings.clickMe),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(plural(Strings.amount, counter, format: NumberFormat.currency(locale: Intl.defaultLocale, symbol: '€')),
+                style: TextStyle(color: Colors.grey.shade900, fontSize: 18, fontWeight: FontWeight.bold)),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.deleteSaveLocale();
+                context.setLocale(Strings.supportedLocales.first);
+              },
+              child: Text(Strings.resetLocale),
+            ),
             Spacer(
               flex: 1,
             ),

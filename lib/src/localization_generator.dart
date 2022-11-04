@@ -95,14 +95,14 @@ class CSVParser {
       if (group1[0] != group2[0]) {
         strBuilder.writeln('\n   // ${group1[0]}');
       }
-      strBuilder.writeln('final ${_joinKey(group1)} = \'${keys[idx]}\'.tr();');
+      strBuilder.writeln('static String get ${_joinKey(group1)} => \'${keys[idx]}\'.tr();');
     }
     return strBuilder.toString();
   }
 
   void _groupKey(StringBuffer strBuilder, List<String> group, String key) {
     strBuilder.writeln('\n   // ${group[0]}');
-    strBuilder.writeln('final ${_joinKey(group)} = \'$key\'.tr();');
+    strBuilder.writeln('static String get ${_joinKey(group)} => \'$key\'.tr();');
   }
 
   void _reNewKeys(List<String?> preservedKeywords, List<String> newKeys, String key) {
