@@ -117,8 +117,18 @@ class _MyHomePageState extends State<MyHomePage> {
             Spacer(
               flex: 1,
             ),
-            Text(Strings.msg(name: 'Jack', type: 'Hot')).tr(args: ['aissat', 'Flutter']),
-            Text(Strings.clicked(counter, count: counter.toString())),
+            Text(
+              Strings.msg(
+                name: 'Jack',
+                type: 'Hot',
+              ),
+            ),
+            Text(
+              Strings.clicked(
+                counter,
+                count: counter.toString(),
+              ),
+            ),
             ElevatedButton(
               onPressed: () {
                 incrementCounter();
