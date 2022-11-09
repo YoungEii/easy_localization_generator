@@ -6,8 +6,8 @@ import 'package:easy_localization_generator/easy_localization_generator.dart';
 part 'strings.g.dart';
 
 @SheetLocalization(
-  docId: '1v2Y3e0Uvn0JTwHvsduNT70u7Fy9TG43DIcZYJxPu1ZA',
-  version: 1,
+  docId: '1eDHYfK25b4N6OoTBkeCqcC_cG1XUkexhrVvSJq0p2-g',
+  version: 13,
   outDir: 'assets/langs',
   outName: 'langs.csv',
   preservedKeywords: [
